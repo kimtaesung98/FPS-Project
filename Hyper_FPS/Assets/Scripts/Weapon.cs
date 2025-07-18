@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] int damage = 1;
+
     StarterAssetsInputs starterAssetsInputs;
 
     void Awake()
@@ -19,7 +21,9 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
             Debug.Log(hit.collider.name);
-            starterAssetsInputs.ShootInput(false);
+            hit.collider.GetComponent<EnemyHealth>()?.TakeDamage(damage);
         }
+
+        starterAssetsInputs.ShootInput(false);
     }
 }
