@@ -4,6 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] int damage = 1;
+    [SerializeField] ParticleSystem muzzleFlashParticle;
 
     StarterAssetsInputs starterAssetsInputs;
 
@@ -16,11 +17,11 @@ public class Weapon : MonoBehaviour
     {
         if (!starterAssetsInputs.shoot) return;
 
-        RaycastHit hit;
+        muzzleFlashParticle.Play();
 
+        RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
-            Debug.Log(hit.collider.name);
             hit.collider.GetComponent<EnemyHealth>()?.TakeDamage(damage);
         }
 
