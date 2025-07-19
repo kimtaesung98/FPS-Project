@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class Robot : MonoBehaviour
 {
+    [SerializeField] Transform target;
     FirstPersonController player;
     NavMeshAgent navMeshAgent;
 

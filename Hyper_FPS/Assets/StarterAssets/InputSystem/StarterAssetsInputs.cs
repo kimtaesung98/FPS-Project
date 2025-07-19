@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool Shoot;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -39,14 +40,23 @@ namespace StarterAssets
 			JumpInput(value.isPressed);
 		}
 
+		public void OnShoot(InputValue value)
+		{
+			ShootInput(value.isPressed);
+		}
+
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
 		}
+        public void OnShoot(InputValue value)
+        {
+			ShootInput(value.isPressed);
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -61,16 +71,25 @@ namespace StarterAssets
 			jump = newJumpState;
 		}
 
+		public void ShootInput(bool newShootState)
+		{
+			shoot = newShootState;
+		}
+
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}
 		
+		public void ShootInput(bool newShootStatre)
+		{
+			Shoot = newShootStatre;
+		}
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}
-
+		
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
