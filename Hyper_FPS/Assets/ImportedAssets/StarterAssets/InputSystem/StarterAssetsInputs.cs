@@ -8,7 +8,7 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
-		public Vector2 move;
+		public Vector2 move;	// 보간 적용된 이동값
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
@@ -16,10 +16,25 @@ namespace StarterAssets
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
+		public Vector2 targetMove;	// 플레이어가 입력하고 있는 이동값
+		Vector2 currentVelocity;	// 이동값 보간에 사용
 
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+        void Update()
+        {
+			//입력이 아날로그 값일 때는 그대로 적용 (게임패드 등...)
+			if (analogMovement)
+			{
+				move = targetMove;
+			}
+			else	//입력이 디지털 값일 때는 보간 적용 (키보드)
+			{
+				move = Vector2.SmoothDamp(move, targetMove, ref currentVelocity, Time.deltaTime);
+			}
+        }
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -54,7 +69,7 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;
+			targetMove = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
