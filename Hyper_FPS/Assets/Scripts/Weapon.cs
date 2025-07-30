@@ -4,7 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] GameObject hitVPXPrefab;
-    [SerializeField] int damage = 1;
+    [SerializeField] WeaponSO weaponSO;
     [SerializeField] ParticleSystem muzzleFlashParticle;
     [SerializeField] Animator animator;
         const string SHOOT_ANIM = "Shoot";
@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
             Instantiate(hitVPXPrefab, hit.point, Quaternion.identity);
-            hit.collider.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            hit.collider.GetComponent<EnemyHealth>()?.TakeDamage(weaponSO.Damage);
         }
     }
 }
