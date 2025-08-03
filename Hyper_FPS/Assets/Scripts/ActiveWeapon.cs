@@ -40,7 +40,10 @@ public class ActiveWeapon : MonoBehaviour
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
         }
-
-        starterAssetsInputs.ShootInput(false);
+        if (!weaponSO.IsAutomatic)
+        {
+            starterAssetsInputs.ShootInput(false);
+        }
+            
     }
 }
