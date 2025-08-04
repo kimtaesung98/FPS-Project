@@ -30,6 +30,11 @@ public class ActiveWeapon : MonoBehaviour
         HandleShoot();
     }
 
+    public void SwitchWeapon(WeaponSO weaponSO) 
+    {
+        Debug.Log("Player picked up " + weaponSO.name);
+    }
+
     void HandleShoot()
     {
         if (!starterAssetsInputs.shoot) return;
@@ -40,10 +45,10 @@ public class ActiveWeapon : MonoBehaviour
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
         }
-        if (!weaponSO.IsAutomatic)
+
+        if (!weaponSO.IsAutomatic) 
         {
             starterAssetsInputs.ShootInput(false);
         }
-            
     }
 }
