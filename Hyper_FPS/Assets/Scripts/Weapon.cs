@@ -1,34 +1,19 @@
-using StarterAssets;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] GameObject hitVPXPrefab;
-    [SerializeField] int damage = 1;
-    [SerializeField] ParticleSystem muzzleFlashParticle;
-    [SerializeField] Animator animator;
-        const string SHOOT_ANIM = "Shoot";
+    [SerializeField] ParticleSystem muzzleFlash;
 
-    StarterAssetsInputs starterAssetsInputs;
-
-    void Awake()
+    public void Shoot(WeaponSO weaponSO)
     {
-        starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
-    }
-
-    void Update()
-    {
-        if (!starterAssetsInputs.shoot) return;
-
-        muzzleFlashParticle.Play();
-        animator.Play(SHOOT_ANIM, 0, 0f);
-        starterAssetsInputs.ShootInput(false);
-
+        muzzleFlash.Play();
         RaycastHit hit;
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
-            Instantiate(hitVPXPrefab, hit.point, Quaternion.identity);
-            hit.collider.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            Instantiate(weaponSO.HitVFXPrefab, hit.point, Quaternion.identity);
+            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+            enemyHealth?.TakeDamage(weaponSO.Damage);
         }
     }
 }
