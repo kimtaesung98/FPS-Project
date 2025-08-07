@@ -19,15 +19,15 @@ public class ActiveWeapon : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Start() 
+    void Start()
     {
         currentWeapon = GetComponentInChildren<Weapon>();
     }
 
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
         HandleShoot();
+        HandleZoom();
     }
 
     public void SwitchWeapon(WeaponSO weaponSO)
@@ -37,13 +37,15 @@ public class ActiveWeapon : MonoBehaviour
             Destroy(currentWeapon.gameObject);
         }
 
-        Weapon newWeapon = Instantiate(weaponSO.weaponPrefab, transform).GetComponent<Weapon>();
+        Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
         currentWeapon = newWeapon;
         this.weaponSO = weaponSO;
     }
 
     void HandleShoot()
     {
+        timeSinceLastShot += Time.deltaTime;
+
         if (!starterAssetsInputs.shoot) return;
 
         if (timeSinceLastShot >= weaponSO.FireRate)
@@ -56,6 +58,20 @@ public class ActiveWeapon : MonoBehaviour
         {
             starterAssetsInputs.ShootInput(false);
         }
-            
+
+    }
+
+    void HandleZoom()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        if (starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zoom On");
+        }
+        else
+        {
+            Debug.Log("Zoom Off");
+        }
     }
 }
