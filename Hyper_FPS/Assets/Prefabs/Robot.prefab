@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d694c8f42543c47b18dab6027c1792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotExplosionVFX: {fileID: 3140117740611510405, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
   maxHealth: 3
 --- !u!136 &3494345367043596098
 CapsuleCollider:
