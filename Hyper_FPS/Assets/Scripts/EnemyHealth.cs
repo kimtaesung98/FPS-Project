@@ -3,21 +3,28 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] GameObject robotExplosionVFX;
-    [SerializeField] int maxHealth = 3;
+    [SerializeField] int startingHealth = 3;
+
     int currentHealth;
 
-    void Awake()
+    void Awake() 
     {
-        currentHealth = maxHealth;
+        currentHealth = startingHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int amount) 
     {
-        currentHealth -= damage;
+        currentHealth -= amount;
+
         if (currentHealth <= 0)
         {
-            Instantiate(robotExplosionVFX, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            SelfDestruct();
         }
+    }
+
+    public void SelfDestruct()
+    {
+        Instantiate(robotExplosionVFX, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
