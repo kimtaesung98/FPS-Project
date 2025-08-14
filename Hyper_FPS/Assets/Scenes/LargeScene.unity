@@ -4242,6 +4242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 3494345367043596098, guid: 78fd187af8840e94aae7491483711684, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14347,6 +14351,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997977521304839389, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3247129539011597908, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
       propertyPath: m_Name
       value: Robot Explosion VFX
@@ -14390,6 +14398,18 @@ PrefabInstance:
     - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723829456506953308, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723829456506953308, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723829456506953308, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4836,6 +4836,7 @@ GameObject:
   - component: {fileID: 7464846071590323364}
   - component: {fileID: 997977521304839389}
   - component: {fileID: 549697150068291409}
+  - component: {fileID: 4647868627932446959}
   m_Layer: 0
   m_Name: Robot Explosion VFX
   m_TagString: Untagged
@@ -9531,6 +9532,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4647868627932446959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247129539011597908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3761fdbd95ce0db47b543677a52e1ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8042738073545265531
 GameObject:
   m_ObjectHideFlags: 0
