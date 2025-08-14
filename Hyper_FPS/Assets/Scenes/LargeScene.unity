@@ -14339,6 +14339,63 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &3466048814261169690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3247129539011597908, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_Name
+      value: Robot Explosion VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7133226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7008359
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464846071590323364, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df816037a2e709f4d8352e70e8eefb36, type: 3}
 --- !u!1001 &3540218371474767436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14524,3 +14581,4 @@ SceneRoots:
   - {fileID: 6361225302133394116}
   - {fileID: 6419170259634208219}
   - {fileID: 3540218371474767436}
+  - {fileID: 3466048814261169690}
