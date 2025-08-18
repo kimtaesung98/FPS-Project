@@ -1,16 +1,19 @@
 using UnityEngine;
 using StarterAssets;
 using Cinemachine;
+using TMPro;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    [SerializeField] WeaponSO weaponSO;
+    [SerializeField] WeaponSO startingWeapon;
+    [SerializeField] CinemachineVirtualCamera playerFollowCamera;
     [SerializeField] GameObject zoomVignette;
-    [SerializeField] CinemachineVirtualCamera followCamera;
+    [SerializeField] TMP_Text ammoText;
 
+    WeaponSO currentWeaponSO;
+    Animator animator;
     StarterAssetsInputs starterAssetsInputs;
     FirstPersonController firstPersonController;
-    Animator animator;
     Weapon currentWeapon;
 
     const string SHOOT_STRING = "Shoot";
@@ -18,20 +21,21 @@ public class ActiveWeapon : MonoBehaviour
     float timeSinceLastShot = 0f;
     float defaultFOV;
     float defaultRotationSpeed;
+    int currentAmmo;
 
     void Awake()
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         firstPersonController = GetComponentInParent<FirstPersonController>();
         animator = GetComponent<Animator>();
-
-        defaultFOV = followCamera.m_Lens.FieldOfView;
+        defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
     }
 
-    void Start()
+    void Start() 
     {
-        currentWeapon = GetComponentInChildren<Weapon>();
+        SwitchWeapon(startingWeapon);
+        AdjustAmmo(currentWeaponSO.MagazineSize);
     }
 
     void Update()
@@ -40,16 +44,29 @@ public class ActiveWeapon : MonoBehaviour
         HandleZoom();
     }
 
-    public void SwitchWeapon(WeaponSO weaponSO)
+    public void AdjustAmmo(int amount) 
     {
-        if (currentWeapon)
+        currentAmmo += amount;
+
+        if (currentAmmo > currentWeaponSO.MagazineSize) 
+        {
+            currentAmmo = currentWeaponSO.MagazineSize;
+        }
+
+        ammoText.text = currentAmmo.ToString("D2");
+    }
+
+    public void SwitchWeapon(WeaponSO weaponSO) 
+    {
+        if (currentWeapon) 
         {
             Destroy(currentWeapon.gameObject);
         }
 
         Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
         currentWeapon = newWeapon;
-        this.weaponSO = weaponSO;
+        this.currentWeaponSO = weaponSO;
+        AdjustAmmo(currentWeaponSO.MagazineSize);
     }
 
     void HandleShoot()
@@ -58,32 +75,33 @@ public class ActiveWeapon : MonoBehaviour
 
         if (!starterAssetsInputs.shoot) return;
 
-        if (timeSinceLastShot >= weaponSO.FireRate)
+        if (timeSinceLastShot >= currentWeaponSO.FireRate && currentAmmo > 0)
         {
-            currentWeapon.Shoot(weaponSO);
+            currentWeapon.Shoot(currentWeaponSO);
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
+            AdjustAmmo(-1);
         }
-        if (!weaponSO.IsAutomatic)
+
+        if (!currentWeaponSO.IsAutomatic) 
         {
             starterAssetsInputs.ShootInput(false);
         }
-
     }
 
     void HandleZoom()
     {
-        if (!weaponSO.CanZoom) return;
+        if (!currentWeaponSO.CanZoom) return;
 
-        if (starterAssetsInputs.zoom)
+        if (starterAssetsInputs.zoom) 
         {
-            followCamera.m_Lens.FieldOfView = weaponSO.ZoomAmount;
+            playerFollowCamera.m_Lens.FieldOfView = currentWeaponSO.ZoomAmount;
             zoomVignette.SetActive(true);
-            firstPersonController.ChangeRotationSpeed(weaponSO.ZoomRotationSpeed);
+            firstPersonController.ChangeRotationSpeed(currentWeaponSO.ZoomRotationSpeed);
         }
-        else
+        else 
         {
-            followCamera.m_Lens.FieldOfView = defaultFOV;
+            playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
             zoomVignette.SetActive(false);
             firstPersonController.ChangeRotationSpeed(defaultRotationSpeed);
         }
