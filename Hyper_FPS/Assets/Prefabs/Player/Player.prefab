@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 11400000, guid: 8274b5e7eef0fd641b653cbb93628250, type: 2}
   playerFollowCamera: {fileID: 0}
+  weaponCamera: {fileID: 2081754268671135992}
   zoomVignette: {fileID: 0}
   ammoText: {fileID: 0}
 --- !u!1 &5315711681143050083
