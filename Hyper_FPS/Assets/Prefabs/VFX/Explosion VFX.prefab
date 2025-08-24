@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 549697150068291409}
   - component: {fileID: 4647868627932446959}
   m_Layer: 0
-  m_Name: Robot Explosion VFX
+  m_Name: Explosion VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4944,7 +4944,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9544,6 +9544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3761fdbd95ce0db47b543677a52e1ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1.5
+  damage: 3
 --- !u!1 &8042738073545265531
 GameObject:
   m_ObjectHideFlags: 0
@@ -9600,7 +9602,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1
+    scalar: 0.2
     minScalar: 1
     maxCurve:
       serializedVersion: 2
