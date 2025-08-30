@@ -498,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 203092428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.556, z: 1.738}
+  m_LocalPosition: {x: 0.01, y: 0.556, z: 2.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6650,7 +6650,7 @@ Transform:
   m_GameObject: {fileID: 1040155171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0}
+  m_LocalPosition: {x: -9.158, y: 6.101, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6688,6 +6688,7 @@ MonoBehaviour:
   playerTargetPoint: {fileID: 46069879}
   projectileSpawnPoint: {fileID: 203092429}
   fireRate: 2
+  damage: 2
 --- !u!1 &1070332661
 GameObject:
   m_ObjectHideFlags: 0
