@@ -1,4 +1,5 @@
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,11 @@ public class PlayerHealth : MonoBehaviour
         weaponCamera.parent = null; // WeaponCamera를 플레이어로부터 분리 -> 카메라가 사라지지 않도록 함
         deathVirtualCamera.Priority = deathCameraPriority; // DeathCamera의 우선순위를 높여서 보이도록 함
         gameOverContainer.SetActive(true); // 죽으면 게임오버 화면을 보여줌
+
+        //커서 잠금을 해제하여 커서가 보이도록 설정
+        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
+        starterAssetsInputs.SetCursorState(false);
+        
         Destroy(gameObject);
     }
 
