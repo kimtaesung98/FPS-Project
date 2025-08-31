@@ -184,6 +184,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6863059265109076498, guid: cb283bc1c06785941a1b22337717aae0, type: 3}
+      propertyPath: gameOverContainer
+      value: 
+      objectReference: {fileID: 536463348}
+    - target: {fileID: 6863059265109076498, guid: cb283bc1c06785941a1b22337717aae0, type: 3}
       propertyPath: deathVirtualCamera
       value: 
       objectReference: {fileID: 929591877}
@@ -3306,7 +3310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &536463349
 RectTransform:
   m_ObjectHideFlags: 0
