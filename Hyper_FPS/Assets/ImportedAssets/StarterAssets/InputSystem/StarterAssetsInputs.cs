@@ -24,6 +24,12 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		//게임 시작 시 커서를 숨김
+		void Start()
+        {
+			SetCursorState(true);
+        }
+
         void Update()
         {
 			//입력이 아날로그 값일 때는 그대로 적용 (게임패드 등...)
@@ -108,7 +114,7 @@ namespace StarterAssets
 			SetCursorState(cursorLocked);
 		}
 
-		private void SetCursorState(bool newState)
+		public void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
